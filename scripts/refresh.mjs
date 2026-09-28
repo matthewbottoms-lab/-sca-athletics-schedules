@@ -79,7 +79,7 @@ function workbookToData(buffer) {
   return { sheetNames: workbook.SheetNames, sheets };
 }
 
-function scheduleHtml(key, label, data, fetchedAt) {
+function scheduleHtml(label, data, fetchedAt) {
   const sections = data.sheets.map((sheet) => {
     const maxCols = Math.max(0, ...sheet.rows.map((r) => r.length));
     const rows = sheet.rows.map((row) => {
@@ -94,12 +94,15 @@ function scheduleHtml(key, label, data, fetchedAt) {
 
 function indexHtml(statuses, fetchedAt) {
   const rows = statuses.map((s) => `<li><strong>${escapeHtml(s.label)}:</strong> ${s.ok ? `ready â <a href="./${s.key}.html">view</a> Â· <a href="./${s.key}.json">JSON</a>` : `ERROR â ${escapeHtml(s.error)}`}</li>`).join("\n");
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SCA Athletics Schedules</title><style>body{font-family:system-ui,-apple-system,sans-serif;margin:28px;line-height:1.5;max-width:900px}.meta{color:#555}</style></head><body><h1>SCA Athletics Schedules</h1><p class="meta">Automated public mirror refreshed ${escapeHtml(fetchedAt)}.</p><ul>${rows}</ul></body></html>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SCA Athletics Schedules</title><style>body{font-family:system-ui,-apple-system,sans-serif;margin:28px;line-height:1.5;max-width:900px}.meta{color:#555}</style></head><body><h1>SCA Athletics Schedules</h1><p class="meta">Automated mirror refreshed ${escapeHtml(fetchedAt)}.</p><ul>${rows}</ul></body></html>`;
 }
 
-const outDir = path.resolve("_site");
-await fs.rm(outDir, { recursive: true, force: true });
-await fs.mkdir(outDir, { recursive: true });
+const siteDir = path.resolve("_site");
+const dataDir = path.resolve("data");
+
+await fs.rm(siteDir, { recursive: true, force: true });
+await fs.mkdir(siteDir, { recursive: true });
+await fs.mkdir(dataDir, { recursive: true });
 
 const fetchedAt = new Date().toISOString();
 const statuses = [];
@@ -108,24 +111,73 @@ for (const [key, source] of Object.entries(SOURCES)) {
   try {
     const { buffer, finalUrl } = await fetchWorkbook(source.url);
     const data = workbookToData(buffer);
-    const payload = { ok: true, source: key, label: source.label, fetchedAt, finalUrl, sheetNames: data.sheetNames, sheets: data.sheets };
-    await fs.writeFile(path.join(outDir, `${key}.json`), JSON.stringify(payload, null, 2));
-    await fs.writeFile(path.join(outDir, `${key}.html`), scheduleHtml(key, source.label, data, fetchedAt));
-    statuses.push({ key, label: source.label, ok: true });
+
+    const payload = {
+      ok: true,
+      source: key,
+      label: source.label,
+      fetchedAt,
+      finalUrl,
+      sheetNames: data.sheetNames,
+      sheets: data.sheets
+    };
+
+    const json = JSON.stringify(payload, null, 2);
+
+    // Publish for the existing GitHub Pages mirror.
+    await fs.writeFile(path.join(siteDir, `${key}.json`), json);
+    await fs.writeFile(path.join(siteDir, `${key}.html`), scheduleHtml(source.label, data, fetchedAt));
+
+    // Also save the latest GOOD copy in the repository for ChatGPT/GitHub access.
+    // If a later SharePoint refresh fails, this file is left untouched rather than
+    // replacing good schedule data with an error payload.
+    await fs.writeFile(path.join(dataDir, `${key}.json`), json);
+
+    statuses.push({
+      key,
+      label: source.label,
+      ok: true,
+      fetchedAt,
+      sheetNames: data.sheetNames
+    });
+
     console.log(`${key}: fetched ${data.sheets.length} sheet(s)`);
   } catch (error) {
     const message = error?.message || String(error);
-    const payload = { ok: false, source: key, label: source.label, fetchedAt, error: message };
-    await fs.writeFile(path.join(outDir, `${key}.json`), JSON.stringify(payload, null, 2));
-    statuses.push({ key, label: source.label, ok: false, error: message });
+
+    // The public diagnostic site shows the error...
+    const errorPayload = {
+      ok: false,
+      source: key,
+      label: source.label,
+      fetchedAt,
+      error: message
+    };
+    await fs.writeFile(path.join(siteDir, `${key}.json`), JSON.stringify(errorPayload, null, 2));
+
+    // ...but data/<schedule>.json remains the last known good copy.
+    statuses.push({
+      key,
+      label: source.label,
+      ok: false,
+      fetchedAt,
+      error: message
+    });
+
     console.error(`${key}: ${message}`);
   }
 }
 
-await fs.writeFile(path.join(outDir, "index.html"), indexHtml(statuses, fetchedAt));
-await fs.writeFile(path.join(outDir, "status.json"), JSON.stringify({ fetchedAt, schedules: statuses }, null, 2));
-await fs.writeFile(path.join(outDir, ".nojekyll"), "");
+const statusPayload = {
+  fetchedAt,
+  schedules: statuses,
+  note: "Schedule JSON files in data/ contain the most recent successful fetch. Check this status file to confirm freshness before relying on them."
+};
 
-// Always publish the diagnostic site, even if SharePoint fetching failed.
-// status.json and the homepage will show the exact fetch error for troubleshooting.
+await fs.writeFile(path.join(siteDir, "index.html"), indexHtml(statuses, fetchedAt));
+await fs.writeFile(path.join(siteDir, "status.json"), JSON.stringify(statusPayload, null, 2));
+await fs.writeFile(path.join(siteDir, ".nojekyll"), "");
 
+// This one is committed to the repository every run so ChatGPT can tell whether
+// the latest refresh succeeded and when it happened.
+await fs.writeFile(path.join(dataDir, "status.json"), JSON.stringify(statusPayload, null, 2));
