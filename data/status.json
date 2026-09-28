@@ -1,0 +1,31 @@
+{
+  "fetchedAt": "2026-09-28T21:56:12.198Z",
+  "schedules": [
+    {
+      "key": "facilities",
+      "label": "Field & Gym Schedule",
+      "ok": true,
+      "fetchedAt": "2026-09-28T21:56:12.198Z",
+      "sheetNames": [
+        "Fall",
+        "Winter",
+        "Spring",
+        "Summer"
+      ]
+    },
+    {
+      "key": "transportation",
+      "label": "Transportation Schedule",
+      "ok": true,
+      "fetchedAt": "2026-09-28T21:56:12.198Z",
+      "sheetNames": [
+        "2026-2027 Transportation",
+        "Weekly Athletics",
+        "Participation",
+        "2025-2026 Transportation",
+        "Sheet1"
+      ]
+    }
+  ],
+  "note": "Schedule JSON files in data/ contain the most recent successful fetch. Check this status file to confirm freshness before relying on them."
+}
