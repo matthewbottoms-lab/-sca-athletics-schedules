@@ -1,20 +1,18 @@
 name: Refresh SCA schedules
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
   schedule:
     - cron: '17,47 * * * *'
       timezone: 'America/Phoenix'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 concurrency:
-  group: pages
+  group: sca-schedules
   cancel-in-progress: true
 
 jobs:
@@ -23,6 +21,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v6
@@ -34,6 +34,18 @@ jobs:
 
       - name: Fetch and convert schedules
         run: npm run refresh
+
+      - name: Save refreshed schedule data to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No schedule-data changes to commit."
+          else
+            git commit -m "Update SCA schedule data"
+            git push
+          fi
 
       - name: Set up Pages
         uses: actions/configure-pages@v5
