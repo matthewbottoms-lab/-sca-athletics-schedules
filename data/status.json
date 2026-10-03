@@ -1,11 +1,11 @@
 {
-  "fetchedAt": "2026-10-03T07:35:11.212Z",
+  "fetchedAt": "2026-10-03T07:58:29.088Z",
   "schedules": [
     {
       "key": "facilities",
       "label": "Field & Gym Schedule",
       "ok": true,
-      "fetchedAt": "2026-10-03T07:35:11.212Z",
+      "fetchedAt": "2026-10-03T07:58:29.088Z",
       "sheetNames": [
         "Fall",
         "Winter",
@@ -17,7 +17,7 @@
       "key": "transportation",
       "label": "Transportation Schedule",
       "ok": true,
-      "fetchedAt": "2026-10-03T07:35:11.212Z",
+      "fetchedAt": "2026-10-03T07:58:29.088Z",
       "sheetNames": [
         "2026-2027 Transportation",
         "Weekly Athletics",
