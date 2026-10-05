@@ -44,7 +44,20 @@ jobs:
             echo "No schedule-data changes to commit."
           else
             git commit -m "Update SCA schedule data"
-            git push
+            for attempt in 1 2 3; do
+  if git push; then
+    exit 0
+  fi
+
+  if [ "$attempt" -lt 3 ]; then
+    echo "Push failed; rebasing on the latest branch and retrying (attempt $attempt of 3)."
+    git fetch origin "$GITHUB_REF_NAME"
+    git rebase "origin/$GITHUB_REF_NAME"
+  fi
+done
+
+echo "Could not push refreshed schedule data after 3 attempts."
+exit 1
           fi
 
       - name: Set up Pages
