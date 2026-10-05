@@ -2,7 +2,7 @@
   "ok": true,
   "source": "transportation",
   "label": "Transportation Schedule",
-  "fetchedAt": "2026-10-05T19:08:58.181Z",
+  "fetchedAt": "2026-10-05T21:32:42.479Z",
   "finalUrl": "https://scaprep-my.sharepoint.com/personal/mbottoms_scamail_org/Documents/Athletics/Master%20AD%20Schedule/New%20Transportation%20Schedule.xlsx?ga=1",
   "sheetNames": [
     "2026-2027 Transportation",
@@ -1564,6 +1564,16 @@
           "A",
           "Pusch Ridge Christian",
           ""
+        ],
+        [
+          "Monday, November 02, 2026",
+          "Feed My Starving Children",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "2 Vehicles"
         ],
         [
           "Tuesday, November 03, 2026",
