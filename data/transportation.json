@@ -2,7 +2,7 @@
   "ok": true,
   "source": "transportation",
   "label": "Transportation Schedule",
-  "fetchedAt": "2026-10-07T16:02:40.260Z",
+  "fetchedAt": "2026-10-07T16:36:18.523Z",
   "finalUrl": "https://scaprep-my.sharepoint.com/personal/mbottoms_scamail_org/Documents/Athletics/Master%20AD%20Schedule/New%20Transportation%20Schedule.xlsx?ga=1",
   "sheetNames": [
     "2026-2027 Transportation",
@@ -1206,6 +1206,16 @@
           "Van K"
         ],
         [
+          "Friday, October 09, 2026",
+          "HS-Cross Country ",
+          "TBD",
+          "TBD",
+          "",
+          "A",
+          "Gilbert CrossRoads Park ",
+          "Van D"
+        ],
+        [
           "Saturday, October 10, 2026",
           "MS Football",
           "x",
@@ -1436,6 +1446,16 @@
           ""
         ],
         [
+          "Friday, October 23, 2026",
+          "HS-Cross Country",
+          "",
+          "TBD",
+          "Kit Carson Invitational ",
+          "A",
+          "TBD",
+          ""
+        ],
+        [
           "Saturday, October 24, 2026",
           "HS-Varsity Volleyball ",
           "",
@@ -1606,12 +1626,32 @@
           ""
         ],
         [
+          "Thursday, November 05, 2026",
+          "HS-Cross Country",
+          "",
+          "TBD",
+          "AIA Sectional-Crossroads",
+          "A",
+          "TBD",
+          ""
+        ],
+        [
           "Saturday, November 07, 2026",
           "MS Football",
           "",
           "TBD",
           "Playoffs",
           "",
+          "TBD",
+          ""
+        ],
+        [
+          "Sunday, November 15, 2026",
+          "HS-Cross Country",
+          "",
+          "TBD",
+          "State",
+          "A",
           "TBD",
           ""
         ],
