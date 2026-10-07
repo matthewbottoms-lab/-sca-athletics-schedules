@@ -2,7 +2,7 @@
   "ok": true,
   "source": "transportation",
   "label": "Transportation Schedule",
-  "fetchedAt": "2026-10-07T17:09:15.406Z",
+  "fetchedAt": "2026-10-07T17:34:33.096Z",
   "finalUrl": "https://scaprep-my.sharepoint.com/personal/mbottoms_scamail_org/Documents/Athletics/Master%20AD%20Schedule/New%20Transportation%20Schedule.xlsx?ga=1",
   "sheetNames": [
     "2026-2027 Transportation",
@@ -1208,9 +1208,9 @@
         [
           "Friday, October 09, 2026",
           "HS-Cross Country ",
+          "8:30am",
+          "9:00am ",
           "TBD",
-          "TBD",
-          "",
           "A",
           "Gilbert CrossRoads Park ",
           "Van D"
