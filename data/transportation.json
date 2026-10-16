@@ -2,7 +2,7 @@
   "ok": true,
   "source": "transportation",
   "label": "Transportation Schedule",
-  "fetchedAt": "2026-10-16T13:01:29.738Z",
+  "fetchedAt": "2026-10-16T13:52:37.105Z",
   "finalUrl": "https://scaprep-my.sharepoint.com/personal/mbottoms_scamail_org/Documents/Athletics/Master%20AD%20Schedule/New%20Transportation%20Schedule.xlsx?ga=1",
   "sheetNames": [
     "2026-2027 Transportation",
@@ -1248,7 +1248,7 @@
         [
           "Monday, October 19, 2026",
           "HS-Varsity Volleyball ",
-          "",
+          "X",
           "6:00pm ",
           "Northland Prep",
           "H",
@@ -1258,7 +1258,7 @@
         [
           "Monday, October 19, 2026",
           "HS-JV Volleyball ",
-          "",
+          "X",
           "5:00pm",
           "Northland Prep",
           "H",
@@ -1278,12 +1278,12 @@
         [
           "Monday, October 19, 2026",
           "HS-JV Flag Football",
-          "",
+          "X",
           "6:00pm ",
           "NDP",
           "H ",
-          "NDP",
-          ""
+          "SCA",
+          "X"
         ],
         [
           "Tuesday, October 20, 2026",
@@ -1298,7 +1298,7 @@
         [
           "Tuesday, October 20, 2026",
           "5/6 Red Girls Volleyball",
-          "",
+          "X",
           "4:45PM",
           "Northwest Christian ",
           "A",
@@ -1328,28 +1328,28 @@
         [
           "Wednesday, October 21, 2026",
           "HS-Varsity Volleyball ",
-          "",
+          "X",
           "6:00pm ",
           "ALA-Mesa North",
           "H",
           "SCA",
-          ""
+          "X"
         ],
         [
           "Wednesday, October 21, 2026",
           "HS-JV Volleyball ",
-          "",
+          "X",
           "5:00pm",
           "ALA-Mesa North",
           "H",
           "SCA",
-          ""
+          "X"
         ],
         [
           "Wednesday, October 21, 2026",
           "HS-JV Flag Football",
-          "",
-          "6:00pm ",
+          "X",
+          "4:00pm ",
           "Sandra Day O'Connor",
           "A",
           "Sandra Day O'Connor",
@@ -1398,12 +1398,12 @@
         [
           "Thursday, October 22, 2026",
           "HS-Varsity Flag Football",
-          "",
+          "X",
           "6:00pm ",
           "Scottsdale Prep",
           "H",
           "SCA",
-          ""
+          "X"
         ],
         [
           "Thursday, October 22, 2026",
@@ -1418,12 +1418,12 @@
         [
           "Friday, October 23, 2026",
           "HS-Varsity Volleyball ",
-          "",
+          "X",
           "4:00pm ",
           "Fountain Hills",
           "H",
           "SCA",
-          ""
+          "X"
         ],
         [
           "Friday, October 23, 2026",
@@ -1433,7 +1433,7 @@
           "Fountain Hills",
           "H",
           "SCA",
-          ""
+          "X"
         ],
         [
           "Friday, October 23, 2026",
@@ -1458,7 +1458,7 @@
         [
           "Saturday, October 24, 2026",
           "HS-Varsity Volleyball ",
-          "",
+          "X",
           "11:00am",
           "North Valley Christian ",
           "A",
@@ -1468,7 +1468,7 @@
         [
           "Saturday, October 24, 2026",
           "HS-JV Volleyball ",
-          "",
+          "X",
           "10:00am",
           "North Valley Christian ",
           "A",
@@ -1478,7 +1478,7 @@
         [
           "Saturday, October 24, 2026",
           "MS Football",
-          "",
+          "X",
           "10:00AM",
           "Northwest Christian White",
           "A",
