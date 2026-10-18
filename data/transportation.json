@@ -2,7 +2,7 @@
   "ok": true,
   "source": "transportation",
   "label": "Transportation Schedule",
-  "fetchedAt": "2026-10-18T00:00:13.067Z",
+  "fetchedAt": "2026-10-18T00:57:35.953Z",
   "finalUrl": "https://scaprep-my.sharepoint.com/personal/mbottoms_scamail_org/Documents/Athletics/Master%20AD%20Schedule/New%20Transportation%20Schedule.xlsx?ga=1",
   "sheetNames": [
     "2026-2027 Transportation",
@@ -1323,7 +1323,7 @@
           "Valley Christian ",
           "A",
           "Tempe Sports Complex",
-          ""
+          "Van K"
         ],
         [
           "Wednesday, October 21, 2026",
@@ -1353,22 +1353,22 @@
           "Sandra Day O'Connor",
           "A",
           "Sandra Day O'Connor",
-          ""
+          "Van K"
         ],
         [
           "Wednesday, October 21, 2026",
           "MS Girls Varsity Volleyball",
-          "",
+          "X",
           "4:45PM",
           "Gilbert Christian Val Vista",
           "A",
           "Gilbert Christian Val Vista",
-          ""
+          "X"
         ],
         [
           "Wednesday, October 21, 2026",
           "MS Girls JV Volleyball",
-          "",
+          "2:15pm",
           "4:00PM",
           "Gilbert Christian Val Vista",
           "A",
@@ -1393,7 +1393,7 @@
           "Chandler Prep/Ben Franklin",
           "A",
           "Orange Tree Golf Course",
-          ""
+          "Van D"
         ],
         [
           "Thursday, October 22, 2026",
@@ -1413,7 +1413,7 @@
           "Ben Franklin",
           "A",
           "Augusta Ranch GC",
-          ""
+          "Van D"
         ],
         [
           "Friday, October 23, 2026",
@@ -1443,7 +1443,7 @@
           "Tournament ",
           "A",
           "TBD",
-          ""
+          "Van K, Bus 1"
         ],
         [
           "Friday, October 23, 2026",
@@ -1453,7 +1453,17 @@
           "Kit Carson Invitational ",
           "A",
           "California ",
-          ""
+          "Van D"
+        ],
+        [
+          "Friday, October 23, 2026",
+          "HS-Varsity Football",
+          "X",
+          "7:00PM",
+          "Arizona Lutheran ",
+          "H",
+          "SCA",
+          "X"
         ],
         [
           "Saturday, October 24, 2026",
@@ -1463,7 +1473,7 @@
           "North Valley Christian ",
           "A",
           "NVCA",
-          "Van D"
+          "Bus 1"
         ],
         [
           "Saturday, October 24, 2026",
@@ -1489,10 +1499,10 @@
           "Saturday, October 24, 2026",
           "MS Golf",
           "x",
-          "11:00AM",
+          "1:00PM",
           "Championship",
           "A",
-          "Sun City GC",
+          "The Futures Course",
           "X"
         ],
         [
