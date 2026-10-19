@@ -33,7 +33,9 @@ jobs:
         run: npm install
 
       - name: Fetch and convert schedules
-        run: npm run refresh
+        run: |
+          npm run refresh
+          cp -R dashboard _site/dashboard
 
       - name: Save refreshed schedule data to repository
         run: |
