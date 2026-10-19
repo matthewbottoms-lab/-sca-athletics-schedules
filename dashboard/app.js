@@ -4,6 +4,10 @@ import { STORAGE_KEY, readApprovals, storageAvailable, saveApproval, reconcileWe
 const $ = id => document.getElementById(id);
 let monday = mondayFor();
 let selected = dayOffset(monday, 0);
+// This is a convenience-only public view, not an access-control mechanism.
+// Coach links show schedule data only; AD links retain local issue approvals.
+const isCoachView = new URLSearchParams(window.location.search).get('view') === 'coach';
+document.body.classList.toggle('coach-view', isCoachView);
 let mode = 'week';
 let filter = 'all';
 let model = { events:[], issues:[] };
@@ -12,6 +16,18 @@ let lastFetched = '';
 let loading = false;
 const canSave = storageAvailable(localStorage);
 approved = new Set(readApprovals(localStorage).map(x => x.id));
+
+const viewSwitch = el('a', 'view-switch', isCoachView ? 'AD view' : 'Coach view ↗');
+viewSwitch.href = isCoachView ? window.location.pathname : `${window.location.pathname}?view=coach`;
+viewSwitch.setAttribute('aria-label', isCoachView ? 'Open Athletic Director view' : 'Open shareable coach schedule');
+$('refresh').before(viewSwitch);
+const brandSubtitle = document.querySelector('.brand-subtitle');
+if (brandSubtitle) brandSubtitle.textContent = isCoachView ? 'Weekly coach schedule' : 'Weekly command center';
+if (isCoachView) {
+  $('issuesTab').hidden = true;
+  $('issuesView').hidden = true;
+  $('approvalStatus').hidden = true;
+}
 
 function el(tag, classes, text) {
   const x = document.createElement(tag);
@@ -48,7 +64,7 @@ async function load() {
     $('freshness').textContent = stale ? '⚠ Schedule data may be outdated' : `Updated ${new Date(lastFetched).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}`;
     $('freshness').classList.toggle('stale',stale);
     if (stale) notices.push('No successful schedule refresh reported in the past 90 minutes.');
-    if (!canSave) notices.push('This browser is preventing local approval storage. Your exceptions cannot be saved until device storage is available.');
+    if (!canSave && !isCoachView) notices.push('This browser is preventing local approval storage. Your exceptions cannot be saved until device storage is available.');
     setNotice(notices.join(' '));
   } catch (err) {
     setNotice(`Could not load schedules: ${err.message}. Previously loaded events are still shown, if available.`);
@@ -64,54 +80,112 @@ function render() {
   $('weekLabel').textContent = formatWeek();
   const events = model.events.filter(visible);
   const issues = currentIssues();
-  const stats = [['Games',events.filter(e => e.type === 'game' && e.source === 'transportation').length],['Practices',events.filter(e => e.type === 'practice').length],['Potential issues',issues.length]];
+  const stats = [
+    ['Games',events.filter(e => e.type === 'game').length],
+    ['Practices',events.filter(e => e.type === 'practice').length],
+    isCoachView ? ['Other activities',events.filter(e => !['game','practice'].includes(e.type)).length] : ['Potential issues',issues.length]
+  ];
   $('stats').replaceChildren(...stats.map(([label,value]) => {
     const card = el('div','stat'); card.append(el('div','stat-number',value),el('div','stat-label',label)); return card;
   }));
   $('issueCounter').textContent = issues.length ? `(${issues.length})` : '';
   $('weekView').hidden = mode !== 'week';
-  $('issuesView').hidden = mode !== 'issues';
+  $('issuesView').hidden = isCoachView || mode !== 'issues';
   $('weekTab').classList.toggle('active',mode === 'week');
-  $('issuesTab').classList.toggle('active',mode === 'issues');
+  $('issuesTab').classList.toggle('active',!isCoachView && mode === 'issues');
   $('weekTab').setAttribute('aria-selected',String(mode === 'week'));
   $('issuesTab').setAttribute('aria-selected',String(mode === 'issues'));
-  $('approvalStatus').textContent = canSave ? 'Exceptions saved only in this browser · not shared with other devices' : 'Local approvals unavailable in this browser';
+  if (!isCoachView) $('approvalStatus').textContent = canSave ? 'Exceptions saved only in this browser · not shared with other devices' : 'Local approvals unavailable in this browser';
   renderDays(events,issues);
-  renderIssues(issues);
+  if (!isCoachView) renderIssues(issues);
+}
+// Keep on-campus facility use separate from off-campus contests. A merged
+// transportation/facility game retains its original gym/field location.
+const ON_CAMPUS = /^(?:sca|scottsdale christian(?: academy)?|home)(?:\b|$)/i;
+const INDOOR_SPORTS = /volleyball|basketball|wrestling|cheer|gymnastics/i;
+function isAwayDescription(detail) {
+  return /(?:^|[\s\n])(?:at\s+[a-z]|@\s*[a-z])/i.test(detail||'') &&
+    !/(?:^|[\s\n])(?:at\s+sca|@\s*sca)\b/i.test(detail||'');
+}
+export function laneFor(e) {
+  if (e.side === 'A') return 'away';
+  if (e.source === 'facilities') {
+    if (e.type !== 'note' && isAwayDescription(e.detail)) return 'away';
+    return e.location === 'Gym' ? 'gym' : 'field';
+  }
+  if (e.source === 'transportation') {
+    if (e.location && !ON_CAMPUS.test(e.location)) return 'away';
+    if (e.facilityLocation === 'Gym') return 'gym';
+    if (e.facilityLocation === 'Field') return 'field';
+    return INDOOR_SPORTS.test(e.team) ? 'gym' : 'field';
+  }
+  return e.location === 'Gym' ? 'gym' : 'field';
+}
+const LANES = [
+  {id:'field',name:'Field & Outdoor',icon:'◌',hint:'On-campus outdoor activities'},
+  {id:'gym',name:'Gym & Indoor',icon:'▤',hint:'On-campus gym activities'},
+  {id:'away',name:'Away Games & Transportation',icon:'↗',hint:'Off-campus events and travel'}
+];
+function eventCard(e) {
+  const card=el('article',`event ${e.type}`), body=el('div','body');
+  card.append(el('span','marker'));
+  const isAway=laneFor(e)==='away';
+  const when=el('div','when',e.source==='transportation' ? (e.time || (e.start!==null?clock(e.start):'TBD')) : (e.start==null?'TBD':clock(e.start)));
+  const description = e.detail || 'No details';
+  body.append(el('div','name',e.team),el('div','description',description));
+  const meta=el('div','meta');
+  const label=e.type==='note'?'Facility note':e.type[0].toUpperCase()+e.type.slice(1);
+  meta.append(el('span','tag',label));
+  if (e.source==='transportation') {
+    if (!isAway && e.facilityLocation) meta.append(el('span','tag',e.facilityLocation));
+    if (isAway && e.location && !/Venue TBD/i.test(e.location)) meta.append(el('span','tag',e.location));
+    if (e.dismissal && !/^x$/i.test(e.dismissal)) meta.append(el('span','tag',`Dismissal: ${e.dismissal}`));
+    if (e.transport && !/^x$/i.test(e.transport)) meta.append(el('span','tag',`Vehicle: ${e.transport}`));
+  }
+  body.append(meta);
+  card.append(body,when);
+  return card;
 }
 function renderDays(events,issues) {
-  const days = weekDays(monday);
-  $('days').replaceChildren(...days.map((date,i) => {
-    const list = events.filter(e => e.date === date), count = issues.filter(issue => issue.date === date).length;
-    const btn = el('button',`day ${selected === date ? 'selected' : ''} ${count ? 'has-issues' : ''}`);
-    btn.setAttribute('aria-pressed',String(selected === date));
-    btn.append(el('div','day-name',['MON','TUE','WED','THU','FRI','SAT','SUN'][i]),el('div','day-number',new Date(`${date}T12:00:00`).getDate()),el('div','day-count',count ? `${count} to review` : `${list.length} items`));
-    btn.onclick = () => { selected=date; render(); };
+  const days=weekDays(monday);
+  $('days').replaceChildren(...days.map((date,i)=>{
+    const list=events.filter(e=>e.date===date);
+    const count=isCoachView?0:issues.filter(issue=>issue.date===date).length;
+    const btn=el('button',`day ${selected===date?'selected':''} ${count?'has-issues':''}`);
+    btn.setAttribute('aria-pressed',String(selected===date));
+    btn.append(el('div','day-name',['MON','TUE','WED','THU','FRI','SAT','SUN'][i]),
+               el('div','day-number',new Date(`${date}T12:00:00`).getDate()),
+               el('div','day-count',count?`${count} to review`:`${list.length} items`));
+    btn.onclick=()=>{selected=date;render();};
     return btn;
   }));
-  const container = $('dayDetails'); container.replaceChildren();
-  const list = events.filter(e => e.date === selected);
-  const head = el('div','day-header');
-  head.append(el('h2','',niceDate(selected,{weekday:'long',month:'long',day:'numeric'})),el('span','count',`${list.length} calendar items`));
+  const container=$('dayDetails');container.replaceChildren();
+  const list=events.filter(e=>e.date===selected);
+  const head=el('div','day-header');
+  head.append(el('h2','',niceDate(selected,{weekday:'long',month:'long',day:'numeric'})),
+              el('span','count',`${list.length} calendar items`));
   container.append(head);
-  if (!list.length) {container.append(el('div','empty','Nothing found for this day in the published schedules.'));return;}
-  const wrap = el('div','event-list');
-  for (const e of list) {
-    const card = el('article',`event ${e.type}`), marker = el('span','marker'), body = el('div','body');
-    body.append(el('div','name',e.team),el('div','description',e.detail || 'No details'));
-    const meta = el('div','meta');
-    for (const item of [e.type === 'note' ? 'Facility note' : e.type[0].toUpperCase() + e.type.slice(1), e.location, e.side === 'A' ? 'Away' : e.side === 'H' ? 'Home' : '', e.source === 'facilities' ? 'Facilities' : 'Transportation']) {
-      if (item) meta.append(el('span','tag',item));
-    }
-    if (e.source === 'transportation') {
-      if (e.dismissal) meta.append(el('span','tag',`Dismissal: ${e.dismissal}`));
-      if (e.transport) meta.append(el('span','tag',`Transport: ${e.transport}`));
-    }
-    body.append(meta);
-    const when = el('div','when',e.source === 'transportation' ? (e.time || 'Time TBD') : e.start == null ? '' : clock(e.start));
-    card.append(marker,body,when); wrap.append(card);
+  if (!list.length) {
+    container.append(el('div','empty','Nothing found for this day in the published schedules.'));
+    return;
   }
-  container.append(wrap);
+  const grid=el('div','facility-grid');
+  for (const lane of LANES) {
+    const entries=list.filter(e=>laneFor(e)===lane.id).sort((a,b)=>
+      (a.start??Number.POSITIVE_INFINITY)-(b.start??Number.POSITIVE_INFINITY)||a.team.localeCompare(b.team));
+    const section=el('section',`facility-lane lane-${lane.id}`);
+    const title=el('div','lane-title');
+    const label=el('div','lane-label');
+    label.append(el('span','lane-icon',lane.icon),el('h3','',lane.name));
+    title.append(label,el('span','lane-count',`${entries.length} ${entries.length===1?'item':'items'}`));
+    section.append(title);
+    const items=el('div','lane-items');
+    if (entries.length) items.append(...entries.map(eventCard));
+    else items.append(el('div','lane-empty','Nothing scheduled'));
+    section.append(items);
+    grid.append(section);
+  }
+  container.append(grid);
 }
 function renderIssues(active) {
   const wrap = $('issuesList');wrap.replaceChildren();
@@ -146,7 +220,7 @@ function setApproval(id,approve) {
   setNotice('');
   render();
 }
-function setMode(value) {mode=value;render();}
+function setMode(value) {mode=isCoachView?'week':value;render();}
 $('weekTab').onclick = () => setMode('week');
 $('issuesTab').onclick = () => setMode('issues');
 $('filter').onchange = e => {filter=e.target.value;render();};
