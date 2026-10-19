@@ -41,26 +41,32 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/
-          if git diff --cached --quiet; then
-            echo "No schedule-data changes to commit."
-          else
+
+          # Keep the newly generated data while updating the commit base.
+          # Avoid rebasing old generated JSON changes, which can conflict
+          # when another refresh has already written those same files.
+          for attempt in 1 2 3; do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --mixed "origin/$GITHUB_REF_NAME"
+            git add data/
+
+            if git diff --cached --quiet; then
+              echo "No schedule-data changes to commit."
+              break
+            fi
+
             git commit -m "Update SCA schedule data"
-            for attempt in 1 2 3; do
-              if git push; then
-                exit 0
-              fi
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              echo "Schedule data pushed successfully."
+              break
+            fi
 
-              if [ "$attempt" -lt 3 ]; then
-                echo "Push failed; rebasing on the latest branch and retrying (attempt $attempt of 3)."
-                git fetch origin "$GITHUB_REF_NAME"
-                git rebase "origin/$GITHUB_REF_NAME"
-              fi
-            done
-
-            echo "Could not push refreshed schedule data after 3 attempts."
-            exit 1
-          fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Could not push refreshed schedule data after 3 attempts."
+              exit 1
+            fi
+            echo "Branch advanced during refresh; retrying with the latest branch."
+          done
 
       - name: Set up Pages
         uses: actions/configure-pages@v5
