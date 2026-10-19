@@ -2,7 +2,7 @@
   "ok": true,
   "source": "transportation",
   "label": "Transportation Schedule",
-  "fetchedAt": "2026-10-19T15:49:58.859Z",
+  "fetchedAt": "2026-10-19T16:50:52.694Z",
   "finalUrl": "https://scaprep-my.sharepoint.com/personal/mbottoms_scamail_org/Documents/Athletics/Master%20AD%20Schedule/New%20Transportation%20Schedule.xlsx?ga=1",
   "sheetNames": [
     "2026-2027 Transportation",
@@ -1448,7 +1448,7 @@
         [
           "Friday, October 23, 2026",
           "HS-Cross Country",
-          "",
+          "All Day",
           "TBD",
           "Kit Carson Invitational ",
           "A",
@@ -1750,211 +1750,238 @@
           "Venue"
         ],
         [
-          "Monday, October 05, 2026",
+          "Monday, October 19, 2026",
           "HS-Varsity Volleyball ",
-          "x",
+          "X",
           "6:00pm ",
-          "Mountainside ",
+          "Northland Prep",
           "H",
           "SCA"
         ],
         [
-          "Monday, October 05, 2026",
+          "Monday, October 19, 2026",
           "HS-JV Volleyball ",
-          "x",
+          "X",
           "5:00pm",
-          "Mountainside ",
+          "Northland Prep",
           "H",
           "SCA"
         ],
         [
-          "Monday, October 05, 2026",
+          "Monday, October 19, 2026",
+          "5th Grade Flag Football",
+          "X",
+          "4:00PM",
+          "Pardes",
+          "A",
+          "Pardes"
+        ],
+        [
+          "Monday, October 19, 2026",
           "HS-JV Flag Football",
-          "x",
+          "X",
           "6:00pm ",
-          "Sandra Day O'Connor",
+          "NDP",
           "H ",
           "SCA"
         ],
         [
-          "Tuesday, October 06, 2026",
-          "HS-Varsity Volleyball ",
+          "Tuesday, October 20, 2026",
+          "5th Grade",
           "x",
-          "6:00pm ",
-          "Rancho Solano Prep",
-          "A",
-          "Rancho Solano"
+          "8:00AM",
+          "BizTown Until 2:30pm",
+          "",
+          "Tempe "
         ],
         [
-          "Tuesday, October 06, 2026",
-          "HS-JV Volleyball ",
-          "x",
-          "5:00pm",
-          "Rancho Solano Prep",
-          "A",
-          "Rancho Solano"
-        ],
-        [
-          "Tuesday, October 06, 2026",
-          "HS-Varsity Flag Football",
-          "x",
-          "6:00pm ",
-          "Cactus Shawdows",
-          "H",
-          "SCA"
-        ],
-        [
-          "Tuesday, October 06, 2026",
-          "MS Girls Varsity Volleyball",
-          "x",
-          "4:45PM",
-          "North Valley Christian ",
-          "H",
-          "SCA"
-        ],
-        [
-          "Tuesday, October 06, 2026",
-          "MS Girls JV Volleyball",
-          "x",
-          "4:00PM",
-          "North Valley Christian ",
-          "H",
-          "SCA"
-        ],
-        [
-          "Tuesday, October 06, 2026",
-          "5/6 White Girls Volleyball",
-          "x",
-          "5:30PM",
-          "North Valley Christian ",
-          "H",
-          "SCA"
-        ],
-        [
-          "Tuesday, October 06, 2026",
-          "5/6 Gold Girls Volleyball",
-          "x",
-          "5:30PM",
-          "North Valley Christian ",
-          "H",
-          "SCA"
-        ],
-        [
-          "Tuesday, October 06, 2026",
-          "MS Soccer",
-          "1:55pm",
-          "4:00PM",
-          "Rancho Solano Prep",
-          "A",
-          "Rancho Solano Prep"
-        ],
-        [
-          "Wednesday, October 07, 2026",
-          "HS-JV Football",
-          "x",
-          "6:00pm ",
-          "Glendale Prep",
-          "H",
-          "SCA"
-        ],
-        [
-          "Wednesday, October 07, 2026",
-          "MS Girls Varsity Volleyball",
-          "x",
-          "6:15PM",
-          "Rancho Solano Prep",
-          "A",
-          "Rancho Solano Prep"
-        ],
-        [
-          "Wednesday, October 07, 2026",
-          "MS Girls JV Volleyball",
-          "x",
-          "5:30PM",
-          "Rancho Solano Prep",
-          "A",
-          "Rancho Solano Prep"
-        ],
-        [
-          "Wednesday, October 07, 2026",
+          "Tuesday, October 20, 2026",
           "5/6 Red Girls Volleyball",
-          "x",
+          "X",
           "4:45PM",
-          "Rancho Solano Prep",
+          "Northwest Christian ",
           "A",
-          "Rancho Solano Prep"
+          "Northwest Christian"
         ],
         [
-          "Wednesday, October 07, 2026",
-          "5/6 Gold Girls Volleyball",
-          "2:50pm",
+          "Tuesday, October 20, 2026",
+          "5/6 White Girls Volleyball",
+          "X",
           "4:00PM",
-          "Rancho Solano Prep",
+          "Northwest Christian ",
           "A",
-          "Rancho Solano Prep"
+          "Northwest Christian"
         ],
         [
-          "Wednesday, October 07, 2026",
-          "5th Grade Flag Football",
-          "2:30pm",
+          "Tuesday, October 20, 2026",
+          "MS Soccer",
+          "2:20pm",
           "4:00PM",
-          "Rancho Solano Prep",
+          "Valley Christian ",
           "A",
-          "Rancho Solano Prep"
+          "Tempe Sports Complex"
         ],
         [
-          "Thursday, October 08, 2026",
+          "Wednesday, October 21, 2026",
           "HS-Varsity Volleyball ",
-          "x",
+          "X",
           "6:00pm ",
-          "Scottsdale Prep",
+          "ALA-Mesa North",
           "H",
           "SCA"
         ],
         [
-          "Thursday, October 08, 2026",
+          "Wednesday, October 21, 2026",
           "HS-JV Volleyball ",
-          "x",
+          "X",
           "5:00pm",
+          "ALA-Mesa North",
+          "H",
+          "SCA"
+        ],
+        [
+          "Wednesday, October 21, 2026",
+          "HS-JV Flag Football",
+          "X",
+          "4:00pm ",
+          "Sandra Day O'Connor",
+          "A",
+          "Sandra Day O'Connor"
+        ],
+        [
+          "Wednesday, October 21, 2026",
+          "MS Girls Varsity Volleyball",
+          "X",
+          "4:45PM",
+          "Gilbert Christian Val Vista",
+          "A",
+          "Gilbert Christian Val Vista"
+        ],
+        [
+          "Wednesday, October 21, 2026",
+          "MS Girls JV Volleyball",
+          "2:15pm",
+          "4:00PM",
+          "Gilbert Christian Val Vista",
+          "A",
+          "Gilbert Christian Val Vista"
+        ],
+        [
+          "Wednesday, October 21, 2026",
+          "5th Grade Flag Football",
+          "X",
+          "4:00PM",
+          "Gilbert Christian Agritopia",
+          "H",
+          "SCA"
+        ],
+        [
+          "Wednesday, October 21, 2026",
+          "MS Golf",
+          "1:45pm",
+          "3:00PM",
+          "Chandler Prep/Ben Franklin",
+          "A",
+          "Orange Tree Golf Course"
+        ],
+        [
+          "Thursday, October 22, 2026",
+          "HS-Varsity Flag Football",
+          "X",
+          "6:00pm ",
           "Scottsdale Prep",
           "H",
           "SCA"
         ],
         [
-          "Thursday, October 08, 2026",
-          "HS-Varsity Flag Football",
-          "x",
-          "6:00pm ",
-          "Madison Highland ",
+          "Thursday, October 22, 2026",
+          "MS Golf",
+          "X",
+          "4:00PM",
+          "Ben Franklin",
+          "A",
+          "Augusta Ranch GC"
+        ],
+        [
+          "Friday, October 23, 2026",
+          "HS-Varsity Volleyball ",
+          "X",
+          "4:00pm ",
+          "Fountain Hills",
           "H",
           "SCA"
         ],
         [
-          "Friday, October 09, 2026",
-          "HS-Varsity Football",
-          "x",
-          "7:00pm",
-          "Phoenix Christian ",
-          "A",
-          "Phoenix Christian"
+          "Friday, October 23, 2026",
+          "HS-JV Volleyball ",
+          "X",
+          "3:00pm",
+          "Fountain Hills",
+          "H",
+          "SCA"
         ],
         [
-          "Friday, October 09, 2026",
-          "HS-Varsity Volleyball ",
-          "7:15AM",
+          "Friday, October 23, 2026",
+          "5th Grade Flag Football",
           "TBD",
-          "Rise N Roar-Tournament ",
+          "TBD",
+          "Tournament ",
           "A",
           "TBD"
         ],
         [
-          "Saturday, October 10, 2026",
-          "MS Football",
-          "x",
-          "8:00AM",
-          "Phoenix Christian ",
+          "Friday, October 23, 2026",
+          "HS-Cross Country",
+          "All Day",
+          "TBD",
+          "Kit Carson Invitational ",
+          "A",
+          "California "
+        ],
+        [
+          "Friday, October 23, 2026",
+          "HS-Varsity Football",
+          "X",
+          "7:00PM",
+          "Arizona Lutheran ",
           "H",
           "SCA"
+        ],
+        [
+          "Saturday, October 24, 2026",
+          "HS-Varsity Volleyball ",
+          "X",
+          "2:00pm",
+          "North Valley Christian ",
+          "A",
+          "NVCA"
+        ],
+        [
+          "Saturday, October 24, 2026",
+          "HS-JV Volleyball ",
+          "X",
+          "3:00pm",
+          "North Valley Christian ",
+          "A",
+          "North Valley Christian"
+        ],
+        [
+          "Saturday, October 24, 2026",
+          "MS Football",
+          "X",
+          "10:00AM",
+          "Northwest Christian White",
+          "A",
+          "Gilbert Christian"
+        ],
+        [
+          "Saturday, October 24, 2026",
+          "MS Golf",
+          "x",
+          "1:00PM",
+          "Championship",
+          "A",
+          "The Futures Course"
         ]
       ]
     },
