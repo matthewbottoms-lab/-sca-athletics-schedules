@@ -1,27 +1,36 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#133a63"><meta name="description" content="Weekly SCA athletic events, facility schedules and potential scheduling issues">
-<title>SCA Athletics | Weekly Dashboard</title>
+<meta name="theme-color" content="#102E51"><meta name="description" content="Scottsdale Christian Athletics daily dashboard, facility timeline and weekly schedules">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="SCA Athletics">
+<title>SCA Athletics | Command Center</title>
+<link rel="icon" type="image/png" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
 <link rel="stylesheet" href="./styles.css">
 </head><body>
 <div class="app">
 <header class="header">
-  <div class="brand"><span class="logo" aria-hidden="true">SCA</span><div><div class="brand-title">Athletics</div><div class="brand-subtitle">Weekly command center</div></div></div>
-  <button id="refresh" class="icon-button" aria-label="Refresh schedules" title="Refresh now">↻</button>
+  <div class="brand"><img class="logo" src="./sca-logo.png" alt="Scottsdale Christian SC Eagle logo"><div><div class="brand-title">SCA Athletics</div><div class="brand-subtitle">AD Command Center</div></div></div>
+  <div class="header-actions"><button id="refresh" class="icon-button" aria-label="Refresh schedules" title="Refresh schedules">↻</button></div>
 </header>
 <main>
-  <div class="heading"><div><p class="eyebrow">Weekly schedule</p><h1 id="weekLabel">Loading...</h1></div><button id="todayBtn" class="small-button">This week</button></div>
-  <div class="navigation"><button id="prev" class="nav-button" aria-label="Previous week">‹</button><div id="freshness" class="freshness">Checking latest schedules…</div><button id="next" class="nav-button" aria-label="Next week">›</button></div>
+  <div class="heading"><div><p class="eyebrow">Scottsdale Christian Academy</p><h1 id="weekLabel">Loading schedules...</h1></div><button id="todayBtn" class="small-button">This week</button></div>
+  <div class="navigation"><button id="prev" class="nav-button" aria-label="Previous week">‹</button><div id="freshness" class="freshness">Checking schedule updates…</div><button id="next" class="nav-button" aria-label="Next week">›</button></div>
   <div id="notice" class="notice" role="status" hidden></div>
-  <div id="stats" class="stats" aria-label="Weekly overview"></div>
-  <div class="toolbar"><div class="tabs" role="tablist" aria-label="Dashboard sections"><button id="weekTab" class="tab active" role="tab" aria-selected="true">Week</button><button id="issuesTab" class="tab" role="tab" aria-selected="false">Potential Issues <span id="issueCounter"></span></button></div>
-    <label class="filterlabel">Show <select id="filter"><option value="all">All teams</option><option value="HS">High school</option><option value="MS">Middle / 5th</option></select></label>
-  </div>
-  <section id="weekView" aria-label="Weekly calendar"><div id="days" class="days"></div><div id="dayDetails" class="day-details"></div></section>
-  <section id="issuesView" aria-label="Potential scheduling issues" hidden><div class="section-heading"><h2>Potential Issues</h2><p>Items to review, not necessarily mistakes. Approving an exception hides it only on this device. The original schedules are never changed.</p></div><div id="issuesList"></div></section>
+  <div id="stats" class="stats" aria-label="Weekly statistics"></div>
+  <div class="toolbar"><div class="tabs" role="tablist" aria-label="Dashboard views">
+    <button id="overviewTab" class="tab active" role="tab" aria-selected="true">Today</button>
+    <button id="weekTab" class="tab" role="tab" aria-selected="false">Week</button>
+    <button id="timelineTab" class="tab" role="tab" aria-selected="false">Timeline</button>
+    <button id="issuesTab" class="tab" role="tab" aria-selected="false">Issues <span id="issueCounter"></span></button>
+  </div><label class="filterlabel">Teams <select id="filter"><option value="all">All teams</option><option value="HS">High school</option><option value="MS">Middle / 5th</option></select></label></div>
+  <section id="overviewView" aria-label="Today at a glance"><div id="overviewDays" class="days"></div><div id="overviewDetails"></div></section>
+  <section id="weekView" aria-label="Weekly calendar" hidden><div id="days" class="days"></div><div id="dayDetails" class="day-details"></div></section>
+  <section id="timelineView" aria-label="Facility timeline" hidden><div id="timelineDays" class="days"></div><div id="timelineDetails" class="day-details"></div></section>
+  <section id="issuesView" aria-label="Potential scheduling issues" hidden><div class="section-heading"><h2>Potential Issues</h2><p>Items to review, not necessarily mistakes. Approving an exception hides it only on your device. Source schedules are never changed.</p></div><div id="issuesList"></div></section>
 </main>
-<footer><div>Read-only schedules from SCA's existing Excel workbooks.</div><div id="approvalStatus">Exceptions saved only in this browser.</div><div>Changes generally appear after the next successful 30-minute GitHub refresh.</div></footer>
+<footer><div>Read-only view of SCA's existing Excel schedules.</div><div id="approvalStatus">Approvals stay on this device.</div><div>Schedules generally update after each successful 30-minute GitHub refresh.</div></footer>
 </div>
 <script type="module" src="./app.js"></script>
 </body></html>

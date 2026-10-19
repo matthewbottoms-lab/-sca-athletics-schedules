@@ -1,0 +1,14 @@
+{
+  "name": "SCA Athletics Command Center",
+  "short_name": "SCA Athletics",
+  "description": "Scottsdale Christian Academy athletics schedules and facility timeline",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#102E51",
+  "icons": [
+    {"src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}
+  ]
+}
