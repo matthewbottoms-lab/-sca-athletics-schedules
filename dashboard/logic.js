@@ -47,6 +47,75 @@ function isGame(s){return /\b(?:vs\.?|versus|game|tournament|scrimmage)\b|\s@\s|
 function highSchool(team){return /\bHS\b|HIGH SCHOOL|\bVARSITY\b|\bJV\b|FROSH/i.test(team)&&!/\bMS\b|MIDDLE SCHOOL|5\/6|5TH|6TH/i.test(team);}
 function groupOf(team){return highSchool(team)?'HS':/\bMS\b|MIDDLE|5\/6|5TH|6TH/i.test(team)?'MS':'Other';}
 function validCell(s){return s&&!/^(?:x|n\/a|na|none|-)$/i.test(s);}
+// The same contest can appear in both workbooks. Merge only when the pairing
+// is unambiguous, rather than hiding two legitimate contests on the same day.
+function teamParts(name) {
+  const raw=norm(name).toLowerCase().replace(/\bjv\s*1\b/g,'jv');
+  const sport=(raw.match(/flag\s*football|volleyball|basketball|cross\s*country|football|baseball|softball|soccer|golf|swim(?:ming)?|wrestling|tennis|track/)||[])[0]||'';
+  const school=/\b(?:ms|middle school)\b/.test(raw)?'MS':/5\s*\/\s*6|5th|6th/.test(raw)?'ELEMENTARY':/\b(?:hs|high school)\b/.test(raw)?'HS':/\bvarsity\b|\bjv\b|frosh/.test(raw)?'HS':'';
+  const level=/\bjv\b/.test(raw)?'JV':/\bvarsity\b/.test(raw)?'VARSITY':/\bfrosh\b/.test(raw)?'FROSH':'';
+  const color=(raw.match(/\b(?:red|gold|blue|white)\b/)||[])[0]||'';
+  const gender=/\bgirls?\b/.test(raw)?'G':/\bboys?\b/.test(raw)?'B':'';
+  return {sport:sport.replace(/\s+/g,' '),school,level,color,gender};
+}
+function meaningfulOpponent(text) {
+  const clean=norm(text).toLowerCase().replace(/\bndp\b|\bnotre\s*dame\s*prep\b/g,'notredameprep').replace(/\bncs\b|\bnorthwest\s*christian\b/g,'northwestchristian')
+    .replace(/\bvs?\.?\b|\bat\b|\bhome\b|\baway\b|\bprep\b|\bhigh\b|\bschool\b|\bpm\b|\bam\b/g,' ');
+  return [...new Set(clean.match(/[a-z]{4,}/g)||[])].filter(t=>!['game','girls','boys','varsity','football','volleyball','basketball','tournament','scrimmage','field','gym','saturday','friday','monday','tuesday','wednesday','thursday','sunday'].includes(t));
+}
+function hasOpponentClue(facilityDetail, opponent) {
+  if (!opponent) return false;
+  const a=meaningfulOpponent(facilityDetail),b=meaningfulOpponent(opponent);
+  return a.some(word=>b.some(other=>word===other || (word.length>=6&&other.length>=6&&(word.includes(other)||other.includes(word)))));
+}
+function candidateScore(f,t) {
+  if(f.date!==t.date||f.type!=='game'||t.type!=='game')return -1;
+  const a=teamParts(f.team),b=teamParts(t.team);
+  if(!a.sport||!b.sport||a.sport!==b.sport)return -1;
+  if(a.school&&b.school&&a.school!==b.school)return -1;
+  if(a.level&&b.level&&a.level!==b.level)return -1;
+  if(a.color&&b.color&&a.color!==b.color)return -1;
+  if(a.gender&&b.gender&&a.gender!==b.gender)return -1;
+  const timeMatch=f.start!==null&&t.start!==null&&Math.abs(f.start-t.start)<=10;
+  const timeMismatch=f.start!==null&&t.start!==null&&!timeMatch;
+  if(timeMismatch)return -1;
+  const opponentMatch=hasOpponentClue(f.detail,t.opponent||'');
+  // Unknown JV/varsity levels must have independent opponent evidence.
+  const ambiguousLevel=Boolean(a.level)!==Boolean(b.level);
+  if(ambiguousLevel&&!opponentMatch)return -1;
+  if(a.school&&b.school&&a.school!==b.school)return -1;
+  if(!timeMatch&&!opponentMatch)return -1;
+  const exactLevel=a.level&&b.level&&a.level===b.level;
+  const exactSchool=a.school&&b.school&&a.school===b.school;
+  return (timeMatch?10:0)+(opponentMatch?4:0)+(exactLevel?2:0)+(exactSchool?1:0);
+}
+function combineSameGames(events) {
+  const facilityGames=events.filter(e=>e.type==='game'&&e.source==='facilities');
+  const transportGames=events.filter(e=>e.type==='game'&&e.source==='transportation');
+  const edges=[];
+  for(const f of facilityGames)for(const t of transportGames){
+    const score=candidateScore(f,t);
+    if(score>=10 || (score>=4 && f.start===null && t.start===null))edges.push({f,t,score});
+  }
+  const bestF=new Map(),bestT=new Map();
+  for(const edge of edges){
+    if(!bestF.has(edge.f)||bestF.get(edge.f).score<edge.score)bestF.set(edge.f,{score:edge.score,edges:[edge]});
+    else if(bestF.get(edge.f).score===edge.score)bestF.get(edge.f).edges.push(edge);
+    if(!bestT.has(edge.t)||bestT.get(edge.t).score<edge.score)bestT.set(edge.t,{score:edge.score,edges:[edge]});
+    else if(bestT.get(edge.t).score===edge.score)bestT.get(edge.t).edges.push(edge);
+  }
+  const matched=new Set();
+  for(const edge of edges){
+    if(bestF.get(edge.f)?.edges.length!==1||bestT.get(edge.t)?.edges.length!==1)continue;
+    if(bestF.get(edge.f).edges[0]!==edge||bestT.get(edge.t).edges[0]!==edge)continue;
+    // Keep the transportation card (opponent, venue, dismissal, vehicles) and
+    // attach useful facility context without publishing duplicate cards.
+    edge.t.facilityLocation=edge.f.location;
+    edge.t.facilityDetail=edge.f.detail;
+    matched.add(edge.f);
+  }
+  return events.filter(e=>!matched.has(e));
+}
 export function processSchedules(facilities,transportation,monday){
   const dates=new Set(weekDays(monday));
   const events=[],issues=[],gym=[];
@@ -80,7 +149,7 @@ export function processSchedules(facilities,transportation,monday){
     const team=norm(row[1]),opponent=norm(row[4]),side=norm(row[5]).toUpperCase();
     if(!team||(!opponent&&!norm(row[3])))continue;
     const dismissal=norm(row[2]),time=norm(row[3]),venue=norm(row[6]),transport=norm(row[7]);
-    events.push({date,team,detail:[opponent?`vs ${opponent}`:'',side==='A'?'Away':side==='H'?'Home':'',venue].filter(Boolean).join(' · '),type:'game',location:venue||'Venue TBD',source:'transportation',group:groupOf(team),start:parseTime(time),time,dismissal,transport,side});
+    events.push({date,team,detail:[opponent?`vs ${opponent}`:'',side==='A'?'Away':side==='H'?'Home':'',venue].filter(Boolean).join(' · '),type:'game',location:venue||'Venue TBD',source:'transportation',group:groupOf(team),start:parseTime(time),time,dismissal,transport,side,opponent});
     if(side==='A'&&opponent){
       const missing=[];
       if(blank(dismissal)||/^tbd$/i.test(dismissal))missing.push('dismissal');
@@ -102,8 +171,9 @@ export function processSchedules(facilities,transportation,monday){
   }
   const unique=new Map();for(const issue of issues)unique.set(issue.signature,issue);
   const rank={game:0,practice:1,event:2,note:3};
-  events.sort((a,b)=>a.date.localeCompare(b.date)||(a.start??9999)-(b.start??9999)||(rank[a.type]??4)-(rank[b.type]??4));
-  return {events,issues:[...unique.values()].sort((a,b)=>a.date.localeCompare(b.date)||a.title.localeCompare(b.title)),monday};
+  const combined=combineSameGames(events);
+  combined.sort((a,b)=>a.date.localeCompare(b.date)||(a.start??9999)-(b.start??9999)||(rank[a.type]??4)-(rank[b.type]??4));
+  return {events:combined,issues:[...unique.values()].sort((a,b)=>a.date.localeCompare(b.date)||a.title.localeCompare(b.title)),monday};
 }
 export async function fingerprint(signature){const input=new TextEncoder().encode(`sca-v1|${signature}`);const buf=await crypto.subtle.digest('SHA-256',input);return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');}
 export {FACILITY_COLS};
