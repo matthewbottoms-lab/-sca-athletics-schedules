@@ -2,7 +2,7 @@
   "ok": true,
   "source": "facilities",
   "label": "Field & Gym Schedule",
-  "fetchedAt": "2026-10-20T15:47:36.996Z",
+  "fetchedAt": "2026-10-20T16:47:58.777Z",
   "finalUrl": "https://scaprep-my.sharepoint.com/personal/mbottoms_scamail_org/Documents/Athletics/Master%20AD%20Schedule/2026-2027%20Master%20Gym%20and%20Field%20Schedule.xlsx?ga=1",
   "sheetNames": [
     "Fall",
@@ -4105,7 +4105,7 @@
         ],
         [
           "Monday, October 26, 2026",
-          "",
+          "5:30PM-7:30PM",
           "4:00pm JV Vs. Heritage Academy Gateway\r\n6:00pm Varsity Vs. Horizon High School",
           "",
           "x",
@@ -4152,7 +4152,7 @@
         ],
         [
           "Tuesday, October 27, 2026",
-          "",
+          "5:30PM-7:30PM",
           "6:00pm Varsity @ Arete Prep",
           "3:00PM-4:45PM",
           "x",
@@ -4199,7 +4199,7 @@
         ],
         [
           "Wednesday, October 28, 2026",
-          "",
+          "5:30PM-7:30PM",
           "",
           "3:00PM-4:45PM",
           "x",
@@ -4246,7 +4246,7 @@
         ],
         [
           "Thursday, October 29, 2026",
-          "",
+          "AM Practice",
           "7:30pm Varsity @ Horizon Honors",
           "3:00PM-4:45PM",
           "x",
@@ -4434,7 +4434,7 @@
         ],
         [
           "Monday, November 02, 2026",
-          "",
+          "5:30PM-7:30PM",
           "6-8pm",
           "",
           "x",
@@ -4481,7 +4481,7 @@
         ],
         [
           "Tuesday, November 03, 2026",
-          "",
+          "5:30PM-7:30PM",
           "7:00pm Varsity @ Gilbert Christian",
           "3:00PM-4:45PM",
           "x",
@@ -4528,7 +4528,7 @@
         ],
         [
           "Wednesday, November 04, 2026",
-          "",
+          "5:30PM-7:30PM",
           "6-8pm",
           "3:00PM-4:45PM",
           "x",
@@ -4768,7 +4768,7 @@
           "3:00PM-4:45PM If Necessary",
           "x",
           "x",
-          "MS Baseball Try-Outs\r\n3-5pm\r\nHS Girls Soccer\r\n3:15PM-5:15PM",
+          "MS Baseball Try-Outs\r\n3-5pm\r\nHS Girls Soccer\r\n3:15PM-5:15PM\r\nBoys Soccer\r\n7:30PM-9:00PM",
           "",
           "3:00PM-4:30PM",
           "X",
@@ -4810,7 +4810,7 @@
         ],
         [
           "Tuesday, November 10, 2026",
-          "",
+          "3:00PM-5:15PM",
           "Playoff",
           "3:00PM-4:45PM If Necessary",
           "x",
@@ -4857,9 +4857,9 @@
         ],
         [
           "Wednesday, November 11, 2026",
-          "",
-          "",
-          "3:00PM-4:45PM If Necessary",
+          "?",
+          "?",
+          "?",
           "x",
           "x",
           "No School",
@@ -4904,12 +4904,12 @@
         ],
         [
           "Thursday, November 12, 2026",
-          "",
-          "",
+          "AM Practice",
+          "6-8pm",
           "3:00PM-4:45PM If Necessary",
           "x",
           "x",
-          "MS Baseball Try-Outs\r\n3-5pm\r\nHS Girls Soccer\r\n3:15PM-5:15PM",
+          "MS Baseball Try-Outs\r\n3-5pm\r\nHS Girls Soccer\r\n3:15PM-5:15PM\r\nBoys Soccer\r\n7:30PM-9:00PM",
           "",
           "Semifinals",
           "X",
@@ -4956,7 +4956,7 @@
           "",
           "x",
           "x",
-          "MS Baseball Try-Outs\r\n3-5pm",
+          "MS Softball\r\n3-5pm\r\nMS Baseball Try-Outs\r\n3-5pm",
           "",
           "3:00PM-4:30PM",
           "X",
@@ -5092,12 +5092,12 @@
         ],
         [
           "Monday, November 16, 2026",
-          "",
-          "",
+          "5:30PM-7:30PM",
+          "6-8pm",
           "",
           "x",
           "x",
-          "",
+          "HS Girls Soccer\r\n3:15PM-5:15PM\r\nMS Girls Flag\r\n3-:00PM-4:30PM\r\nBoys Soccer\r\n7:30PM-9:00PM",
           "",
           "",
           "X",
@@ -5139,12 +5139,12 @@
         ],
         [
           "Tuesday, November 17, 2026",
-          "",
-          "",
+          "5:30PM-7:30PM",
+          "6-8pm",
           "",
           "x",
           "x",
-          "",
+          "HS Girls Soccer\r\n3:15PM-5:15PM\r\nMS Softball\r\n3-:00PM-5:00PM\r\nBoys Soccer\r\n7:30PM-9:00PM",
           "",
           "",
           "X",
@@ -5186,12 +5186,12 @@
         ],
         [
           "Wednesday, November 18, 2026",
-          "",
-          "",
+          "5:30PM-7:30PM",
+          "6-8pm",
           "",
           "x",
           "x",
-          "",
+          "HS Girls Soccer\r\n3:15PM-5:15PM\r\nMS Girls Flag\r\n3-:00PM-4:30PM\r\nBoys Soccer\r\n7:30PM-9:00PM",
           "",
           "",
           "X",
@@ -5233,12 +5233,12 @@
         ],
         [
           "Thursday, November 19, 2026",
-          "",
-          "",
+          "5:30PM-7:30PM",
+          "6-8pm",
           "",
           "x",
           "x",
-          "",
+          "HS Girls Soccer\r\n3:15PM-5:15PM\r\nMS Softball\r\n3-:00PM-5:00PM\r\nBoys Soccer\r\n7:30PM-9:00PM",
           "",
           "",
           "X",
@@ -5280,7 +5280,7 @@
         ],
         [
           "Friday, November 20, 2026",
-          "",
+          "3:00PM-4:30PM",
           "",
           "",
           "x",
@@ -5430,6 +5430,7 @@
           "",
           "",
           "",
+          "Baseball Field Schedule",
           "",
           "",
           "",
@@ -5449,6 +5450,7 @@
           "Boys Soccer",
           "Girls Soccer",
           "MS Softball",
+          "MS Flag Football",
           "MS Varsity Baseball",
           "MS JV Red Baseball",
           "MS JV Blue Baseball",
@@ -5472,6 +5474,7 @@
           "TIME",
           "TIME",
           "TIME",
+          "TIME",
           "FIELD NOTES",
           "",
           "TIME",
@@ -5485,150 +5488,11 @@
           ""
         ],
         [
-          "Monday, November 16, 2026",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "Monday, November 16, 2026",
-          "",
-          ""
-        ],
-        [
-          "Tuesday, November 17, 2026",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "Tuesday, November 17, 2026",
-          "",
-          ""
-        ],
-        [
-          "Wednesday, November 18, 2026",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "Wednesday, November 18, 2026",
-          "",
-          ""
-        ],
-        [
-          "Thursday, November 19, 2026",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "Thursday, November 19, 2026",
-          "",
-          ""
-        ],
-        [
-          "Friday, November 20, 2026",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "Friday, November 20, 2026",
-          "",
-          ""
-        ],
-        [
-          "Saturday, November 21, 2026",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "Saturday, November 21, 2026",
-          "",
-          ""
-        ],
-        [
-          "Sunday, November 22, 2026",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "Sunday, November 22, 2026",
-          "",
-          ""
-        ],
-        [
           "Monday, November 23, 2026",
           "",
+          "3:00PM-4:30PM",
           "",
-          "",
+          "3:00PM-4:30PM",
           "",
           "",
           "",
@@ -5647,7 +5511,8 @@
         [
           "Tuesday, November 24, 2026",
           "",
-          "",
+          "3:00PM-4:30PM",
+          "3:00PM-4:30PM",
           "",
           "",
           "",
@@ -5667,8 +5532,9 @@
         [
           "Wednesday, November 25, 2026",
           "",
+          "3:00PM-4:30PM",
           "",
-          "",
+          "3:00PM-4:30PM",
           "",
           "",
           "",
@@ -5687,7 +5553,8 @@
         [
           "Thursday, November 26, 2026",
           "",
-          "",
+          "3:00PM-4:30PM",
+          "3:00PM-4:30PM",
           "",
           "",
           "",
@@ -5708,7 +5575,8 @@
           "Friday, November 27, 2026",
           "",
           "",
-          "",
+          "3:00PM-4:30PM",
+          "3:00PM-4:30PM",
           "",
           "",
           "",
@@ -5726,6 +5594,7 @@
         ],
         [
           "Saturday, November 28, 2026",
+          "",
           "",
           "",
           "",
@@ -5746,6 +5615,7 @@
         ],
         [
           "Sunday, November 29, 2026",
+          "",
           "",
           "",
           "",
@@ -5767,8 +5637,9 @@
         [
           "Monday, November 30, 2026",
           "",
+          "3:00PM-4:30PM",
           "",
-          "",
+          "3:00PM-4:30PM",
           "",
           "",
           "",
@@ -5787,7 +5658,8 @@
         [
           "Tuesday, December 01, 2026",
           "",
-          "",
+          "3:00PM-4:30PM",
+          "3:00PM-4:30PM",
           "",
           "",
           "",
@@ -5807,8 +5679,9 @@
         [
           "Wednesday, December 02, 2026",
           "",
+          "3:00PM-4:30PM",
           "",
-          "",
+          "3:00PM-4:30PM",
           "",
           "",
           "",
@@ -5827,7 +5700,8 @@
         [
           "Thursday, December 03, 2026",
           "",
-          "",
+          "3:00PM-4:30PM",
+          "3:00PM-4:30PM",
           "",
           "",
           "",
@@ -5848,7 +5722,8 @@
           "Friday, December 04, 2026",
           "",
           "",
-          "",
+          "3:00PM-4:30PM",
+          "3:00PM-4:30PM",
           "",
           "",
           "",
@@ -5866,6 +5741,7 @@
         ],
         [
           "Saturday, December 05, 2026",
+          "",
           "",
           "",
           "",
@@ -5886,6 +5762,7 @@
         ],
         [
           "Sunday, December 06, 2026",
+          "",
           "",
           "",
           "",
@@ -5906,6 +5783,7 @@
         ],
         [
           "Monday, December 07, 2026",
+          "",
           "",
           "",
           "",
@@ -5926,6 +5804,7 @@
         ],
         [
           "Tuesday, December 08, 2026",
+          "",
           "",
           "",
           "",
@@ -5946,6 +5825,7 @@
         ],
         [
           "Wednesday, December 09, 2026",
+          "",
           "",
           "",
           "",
@@ -5980,6 +5860,7 @@
           "",
           "",
           "",
+          "",
           "Thursday, December 10, 2026",
           "",
           ""
@@ -6000,6 +5881,7 @@
           "",
           "",
           "",
+          "",
           "Friday, December 11, 2026",
           "",
           ""
@@ -6020,6 +5902,7 @@
           "",
           "",
           "",
+          "",
           "Saturday, December 12, 2026",
           "",
           ""
@@ -6040,6 +5923,7 @@
           "",
           "",
           "",
+          "",
           "Sunday, December 13, 2026",
           "",
           ""
@@ -6060,6 +5944,7 @@
           "",
           "",
           "",
+          "",
           "Monday, December 14, 2026",
           "",
           ""
@@ -6080,6 +5965,7 @@
           "",
           "",
           "",
+          "",
           "Tuesday, December 15, 2026",
           "",
           ""
@@ -6100,6 +5986,7 @@
           "",
           "",
           "",
+          "",
           "Wednesday, December 16, 2026",
           "",
           ""
@@ -6120,6 +6007,7 @@
           "",
           "",
           "",
+          "",
           "Thursday, December 17, 2026",
           "",
           ""
@@ -6140,6 +6028,7 @@
           "",
           "",
           "",
+          "",
           "Friday, December 18, 2026",
           "",
           ""
@@ -6160,6 +6049,7 @@
           "",
           "",
           "",
+          "",
           "Saturday, December 19, 2026",
           "",
           ""
@@ -6180,12 +6070,14 @@
           "",
           "",
           "",
+          "",
           "Sunday, December 20, 2026",
           "",
           ""
         ],
         [
           "Monday, December 21, 2026",
+          "",
           "",
           "",
           "",
@@ -6206,6 +6098,7 @@
         ],
         [
           "Tuesday, December 22, 2026",
+          "",
           "",
           "",
           "",
@@ -6226,6 +6119,7 @@
         ],
         [
           "Wednesday, December 23, 2026",
+          "",
           "",
           "",
           "",
@@ -6246,6 +6140,7 @@
         ],
         [
           "Thursday, December 24, 2026",
+          "",
           "",
           "",
           "",
@@ -6266,6 +6161,7 @@
         ],
         [
           "Friday, December 25, 2026",
+          "",
           "",
           "",
           "",
@@ -6286,6 +6182,7 @@
         ],
         [
           "Saturday, December 26, 2026",
+          "",
           "",
           "",
           "",
@@ -6306,6 +6203,7 @@
         ],
         [
           "Sunday, December 27, 2026",
+          "",
           "",
           "",
           "",
@@ -6326,6 +6224,7 @@
         ],
         [
           "Monday, December 28, 2026",
+          "",
           "",
           "",
           "",
@@ -6346,6 +6245,7 @@
         ],
         [
           "Tuesday, December 29, 2026",
+          "",
           "",
           "",
           "",
@@ -6366,6 +6266,7 @@
         ],
         [
           "Wednesday, December 30, 2026",
+          "",
           "",
           "",
           "",
@@ -6386,6 +6287,7 @@
         ],
         [
           "Thursday, December 31, 2026",
+          "",
           "",
           "",
           "",
@@ -6406,6 +6308,7 @@
         ],
         [
           "Friday, January 01, 2027",
+          "",
           "",
           "",
           "",
@@ -6426,6 +6329,7 @@
         ],
         [
           "Saturday, January 02, 2027",
+          "",
           "",
           "",
           "",
@@ -6446,6 +6350,7 @@
         ],
         [
           "Sunday, January 03, 2027",
+          "",
           "",
           "",
           "",
@@ -6466,6 +6371,7 @@
         ],
         [
           "Monday, January 04, 2027",
+          "",
           "",
           "",
           "",
@@ -6486,6 +6392,7 @@
         ],
         [
           "Tuesday, January 05, 2027",
+          "",
           "",
           "",
           "",
@@ -6506,6 +6413,7 @@
         ],
         [
           "Wednesday, January 06, 2027",
+          "",
           "",
           "",
           "",
@@ -6540,6 +6448,7 @@
           "",
           "",
           "",
+          "",
           "Thursday, January 07, 2027",
           "",
           ""
@@ -6560,6 +6469,7 @@
           "",
           "",
           "",
+          "",
           "Friday, January 08, 2027",
           "",
           ""
@@ -6580,6 +6490,7 @@
           "",
           "",
           "",
+          "",
           "Saturday, January 09, 2027",
           "",
           ""
@@ -6600,6 +6511,7 @@
           "",
           "",
           "",
+          "",
           "Sunday, January 10, 2027",
           "",
           ""
@@ -6620,6 +6532,7 @@
           "",
           "",
           "",
+          "",
           "Monday, January 11, 2027",
           "",
           ""
@@ -6640,6 +6553,7 @@
           "",
           "",
           "",
+          "",
           "Tuesday, January 12, 2027",
           "",
           ""
@@ -6660,6 +6574,7 @@
           "",
           "",
           "",
+          "",
           "Wednesday, January 13, 2027",
           "",
           ""
@@ -6680,12 +6595,14 @@
           "",
           "",
           "",
+          "",
           "Thursday, January 14, 2027",
           "",
           ""
         ],
         [
           "Friday, January 15, 2027",
+          "",
           "",
           "",
           "",
@@ -6720,6 +6637,7 @@
           "",
           "",
           "",
+          "",
           "Saturday, January 16, 2027",
           "",
           ""
@@ -6740,6 +6658,7 @@
           "",
           "",
           "",
+          "",
           "Sunday, January 17, 2027",
           "",
           ""
@@ -6760,6 +6679,7 @@
           "",
           "",
           "",
+          "",
           "Monday, January 18, 2027",
           "",
           ""
@@ -6780,6 +6700,7 @@
           "",
           "",
           "",
+          "",
           "Tuesday, January 19, 2027",
           "",
           ""
@@ -6800,6 +6721,7 @@
           "",
           "",
           "",
+          "",
           "Wednesday, January 20, 2027",
           "",
           ""
@@ -6820,6 +6742,7 @@
           "",
           "",
           "",
+          "",
           "Thursday, January 21, 2027",
           "",
           ""
@@ -6840,6 +6763,7 @@
           "",
           "",
           "",
+          "",
           "Friday, January 22, 2027",
           "",
           ""
@@ -6860,6 +6784,7 @@
           "",
           "",
           "",
+          "",
           "Saturday, January 23, 2027",
           "",
           ""
@@ -6880,6 +6805,7 @@
           "",
           "",
           "",
+          "",
           "Sunday, January 24, 2027",
           "",
           ""
@@ -6900,6 +6826,7 @@
           "",
           "",
           "",
+          "",
           "Monday, January 25, 2027",
           "",
           ""
@@ -6920,6 +6847,7 @@
           "",
           "",
           "",
+          "",
           "Tuesday, January 26, 2027",
           "",
           ""
@@ -6940,6 +6868,7 @@
           "",
           "",
           "",
+          "",
           "Wednesday, January 27, 2027",
           "",
           ""
@@ -6960,6 +6889,7 @@
           "",
           "",
           "",
+          "",
           "Thursday, January 28, 2027",
           "",
           ""
@@ -6980,6 +6910,7 @@
           "",
           "",
           "",
+          "",
           "Friday, January 29, 2027",
           "",
           ""
@@ -7000,6 +6931,7 @@
           "",
           "",
           "",
+          "",
           "Saturday, January 30, 2027",
           "",
           ""
@@ -7020,6 +6952,7 @@
           "",
           "",
           "",
+          "",
           "Sunday, January 31, 2027",
           "",
           ""
@@ -7040,6 +6973,7 @@
           "",
           "",
           "",
+          "",
           "Monday, February 01, 2027",
           "",
           ""
@@ -7060,12 +6994,14 @@
           "",
           "",
           "",
+          "",
           "Tuesday, February 02, 2027",
           "",
           ""
         ],
         [
           "Wednesday, February 03, 2027",
+          "",
           "",
           "",
           "",
@@ -7100,6 +7036,7 @@
           "",
           "",
           "",
+          "",
           "Thursday, February 04, 2027",
           "",
           ""
@@ -7120,6 +7057,7 @@
           "",
           "",
           "",
+          "",
           "Friday, February 05, 2027",
           "",
           ""
@@ -7140,6 +7078,7 @@
           "",
           "",
           "",
+          "",
           "Saturday, February 06, 2027",
           "",
           ""
@@ -7160,6 +7099,7 @@
           "",
           "",
           "",
+          "",
           "Sunday, February 07, 2027",
           "",
           ""
@@ -7180,6 +7120,7 @@
           "",
           "",
           "",
+          "",
           "Monday, February 08, 2027",
           "",
           ""
@@ -7200,6 +7141,7 @@
           "",
           "",
           "",
+          "",
           "Tuesday, February 09, 2027",
           "",
           ""
@@ -7220,6 +7162,7 @@
           "",
           "",
           "",
+          "",
           "Wednesday, February 10, 2027",
           "",
           ""
@@ -7240,6 +7183,7 @@
           "",
           "",
           "",
+          "",
           "Thursday, February 11, 2027",
           "",
           ""
@@ -7260,6 +7204,7 @@
           "",
           "",
           "",
+          "",
           "Friday, February 12, 2027",
           "",
           ""
@@ -7280,6 +7225,7 @@
           "",
           "",
           "",
+          "",
           "Saturday, February 13, 2027",
           "",
           ""
@@ -7300,6 +7246,7 @@
           "",
           "",
           "",
+          "",
           "Sunday, February 14, 2027",
           "",
           ""
@@ -7320,6 +7267,7 @@
           "",
           "",
           "",
+          "",
           "Monday, February 15, 2027",
           "",
           ""
@@ -7340,6 +7288,7 @@
           "",
           "",
           "",
+          "",
           "Tuesday, February 16, 2027",
           "",
           ""
@@ -7360,6 +7309,7 @@
           "",
           "",
           "",
+          "",
           "Wednesday, February 17, 2027",
           "",
           ""
@@ -7380,12 +7330,14 @@
           "",
           "",
           "",
+          "",
           "Thursday, February 18, 2027",
           "",
           ""
         ],
         [
           "Friday, February 19, 2027",
+          "",
           "",
           "",
           "",
@@ -7420,12 +7372,14 @@
           "",
           "",
           "",
+          "",
           "Saturday, February 20, 2027",
           "",
           ""
         ],
         [
           "Sunday, February 21, 2027",
+          "",
           "",
           "",
           "",
