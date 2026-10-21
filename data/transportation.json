@@ -2,7 +2,7 @@
   "ok": true,
   "source": "transportation",
   "label": "Transportation Schedule",
-  "fetchedAt": "2026-10-21T15:50:34.310Z",
+  "fetchedAt": "2026-10-21T16:48:51.657Z",
   "finalUrl": "https://scaprep-my.sharepoint.com/personal/mbottoms_scamail_org/Documents/Athletics/Master%20AD%20Schedule/New%20Transportation%20Schedule.xlsx?ga=1",
   "sheetNames": [
     "2026-2027 Transportation",
@@ -1353,7 +1353,7 @@
           "Sandra Day O'Connor",
           "A",
           "Sandra Day O'Connor",
-          "Van K"
+          "x"
         ],
         [
           "Wednesday, October 21, 2026",
@@ -1673,6 +1673,16 @@
           "State",
           "A",
           "TBD",
+          ""
+        ],
+        [
+          "Monday, November 16, 2026",
+          "HS-Varsity Girls Basketball",
+          "",
+          "6:00pm ",
+          "Gilbert Christian ",
+          "A",
+          "Gilbert Christian ",
           ""
         ],
         [
