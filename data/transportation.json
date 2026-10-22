@@ -2,7 +2,7 @@
   "ok": true,
   "source": "transportation",
   "label": "Transportation Schedule",
-  "fetchedAt": "2026-10-22T14:49:46.803Z",
+  "fetchedAt": "2026-10-22T15:49:22.757Z",
   "finalUrl": "https://scaprep-my.sharepoint.com/personal/mbottoms_scamail_org/Documents/Athletics/Master%20AD%20Schedule/New%20Transportation%20Schedule.xlsx?ga=1",
   "sheetNames": [
     "2026-2027 Transportation",
@@ -1393,7 +1393,7 @@
           "Chandler Prep/Ben Franklin",
           "A",
           "Orange Tree Golf Course",
-          "Van D"
+          "x"
         ],
         [
           "Thursday, October 22, 2026",
@@ -1404,16 +1404,6 @@
           "H",
           "SCA",
           "X"
-        ],
-        [
-          "Thursday, October 22, 2026",
-          "MS Golf",
-          "X",
-          "4:00PM",
-          "Ben Franklin",
-          "A",
-          "Augusta Ranch GC",
-          "Van D"
         ],
         [
           "Friday, October 23, 2026",
@@ -1438,22 +1428,12 @@
         [
           "Friday, October 23, 2026",
           "5th Grade Flag Football",
-          "TBD",
-          "TBD",
+          "8:00AM",
+          "9:00AM",
           "Tournament ",
           "A",
-          "TBD",
-          "Van K, Bus 1"
-        ],
-        [
-          "Friday, October 23, 2026",
-          "HS-Cross Country",
-          "All Day",
-          "TBD",
-          "Kit Carson Invitational ",
-          "A",
-          "California ",
-          "Van D"
+          "Rancho Solano",
+          "Van K, Van D"
         ],
         [
           "Friday, October 23, 2026",
